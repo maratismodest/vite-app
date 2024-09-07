@@ -1,38 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { getRandomInt } from "../utils/getRandomInt.ts";
+import { getRandomInt } from "../utils/getRandomInt";
+import { words } from "../constants/words";
+import WebApp from "@twa-dev/sdk";
 
 export const Route = createFileRoute("/game")({
   component: GameComponent,
 });
-
-type IWord = {
-  id: number;
-  ru: string;
-  ta: string;
-  audio: string;
-};
-
-const words: IWord[] = [
-  {
-    id: 1,
-    ru: "я",
-    ta: "мин",
-    audio: "https://fileserver.innoads.ru/uploads/chamala/мин.mp3",
-  },
-  {
-    id: 2,
-    ru: "ты",
-    ta: "син",
-    audio: "https://fileserver.innoads.ru/uploads/chamala/син.mp3",
-  },
-  {
-    id: 3,
-    ru: "он/она/оно",
-    ta: "ул",
-    audio: "https://fileserver.innoads.ru/uploads/chamala/ул.mp3",
-  },
-];
 
 function GameComponent() {
   const [current, setCurrent] = useState<number>(() =>
@@ -40,13 +14,13 @@ function GameComponent() {
   );
   const [open, setOpen] = useState(false);
 
-  const { id, ta, ru, audio } = words[current];
+  const { ta, ru, audio } = words[current];
 
   return (
-    <div className="p-2">
+    <div className="grid grid-cols-1 gap-4">
       <h1>Game</h1>
-      <div key={id}>
-        <audio controls>
+      <div className="p-4 border rounded grid grid-cols-1 gap-4">
+        <audio controls className="mx-auto">
           <source src={audio} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
@@ -54,15 +28,18 @@ function GameComponent() {
           onClick={() => {
             setOpen((prev) => !prev);
           }}
+          className="text-6xl w-full"
         >
           {open ? ru : ta}
         </button>
       </div>
       <button
         onClick={() => {
+          WebApp.showAlert(`Hello World! Current word is ${ru}`);
           setCurrent(getRandomInt(0, words.length - 1));
           setOpen(false);
         }}
+        className="button"
       >
         Алга
       </button>
