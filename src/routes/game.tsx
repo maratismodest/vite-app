@@ -9,7 +9,7 @@ export const Route = createFileRoute("/game")({
 });
 
 function GameComponent() {
-  const [current, setCurrent] = useState<number>(() =>
+  const [current, setCurrent] = useState<number>(
     getRandomInt(0, words.length - 1),
   );
   const [open, setOpen] = useState(false);
@@ -20,7 +20,7 @@ function GameComponent() {
     <div className="grid grid-cols-1 gap-4">
       <h1>Game</h1>
       <div className="p-4 border rounded grid grid-cols-1 gap-4">
-        <audio controls className="mx-auto">
+        <audio controls className="mx-auto" src={audio}>
           <source src={audio} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
