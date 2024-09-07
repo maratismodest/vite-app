@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { getRandomInt } from "../utils/getRandomInt";
 import { words } from "../constants/words";
-import WebApp from "@twa-dev/sdk";
+// import WebApp from "@twa-dev/sdk";
 
 export const Route = createFileRoute("/game")({
   component: GameComponent,
@@ -35,7 +35,7 @@ function GameComponent() {
       </div>
       <button
         onClick={() => {
-          WebApp.showAlert(`Hello World! Current word is ${ru}`);
+          // WebApp.showAlert(`Hello World! Current word is ${ru}`);
           setCurrent(getRandomInt(0, words.length - 1));
           setOpen(false);
         }}
