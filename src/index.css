@@ -36,23 +36,37 @@
     }
 
     main {
-        @apply p-4
+        @apply p-4 grid grid-cols-1 gap-2 max-w-3xl mx-auto
     }
 
-
+    h1 {
+        @apply text-2xl font-bold leading-tight text-gray-900;
+    }
 
 }
 
 @layer components {
     .button {
-        @apply w-full bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out;
+        @apply w-full bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out max-w-3xl;
     }
 
     @keyframes changeText {
-        0%, 20% { opacity: 1; transform: translateY(0); }
-        25%, 45% { opacity: 0; transform: translateY(-20px); }
-        50%, 70% { opacity: 0; transform: translateY(20px); }
-        75%, 100% { opacity: 1; transform: translateY(0); }
+        0%, 20% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        25%, 45% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        50%, 70% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        75%, 100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .animate-text-change {

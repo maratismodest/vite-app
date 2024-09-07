@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import Hero from "./../assets/hero.svg?react";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
@@ -6,10 +7,11 @@ export const Route = createFileRoute("/")({
 
 function HomeComponent() {
   return (
-    <div className="grid grid-cols-1 gap-2">
+    <>
+      <Hero className="w-full max-w-2xl" />
       <h1>Chamala</h1>
+      <p>Изучение татарского языка в формате мини-игр</p>
       <ul>
-        <li>Изучение татарских слов с помощью карточек</li>
         <li>
           Прослушайте аудио, прочитайте слово вслух и попробуйте перевести
         </li>
@@ -18,6 +20,6 @@ function HomeComponent() {
       <Link to="/game">
         <button className="button">Алга!</button>
       </Link>
-    </div>
+    </>
   );
 }
