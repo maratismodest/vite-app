@@ -4,4 +4,5 @@ export type IWord = {
   ta: string;
   en: string;
   audio: string;
+  image?: string;
 };

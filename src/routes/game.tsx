@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { getRandomInt } from "../utils/getRandomInt";
 import { words } from "../constants/words";
-// import WebApp from "@twa-dev/sdk";
+// import Pants from "../assets/svg/pants.svg";
 
 export const Route = createFileRoute("/game")({
   component: GameComponent,
@@ -14,12 +14,19 @@ function GameComponent() {
   );
   const [open, setOpen] = useState(false);
 
-  const { ta, ru, audio } = words[current];
+  const { ta, ru, audio, image } = words[current];
 
   return (
     <>
       <h1>Game</h1>
       <div className="p-4 border rounded grid grid-cols-1 gap-4 min-h-52">
+        <img
+          src={image}
+          alt={image}
+          width={128}
+          height={128}
+          className="mx-auto"
+        />
         <audio controls className="mx-auto" src={audio}>
           <source src={audio} type="audio/mpeg" />
           Your browser does not support the audio element.
