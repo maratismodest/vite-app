@@ -35,7 +35,7 @@ function GameComponent() {
         <button
           onClick={toggleCard}
           onTouchStart={toggleCard}
-          className="trelative cursor-pointer overflow-hidden w-full mx-auto"
+          className="relative cursor-pointer overflow-hidden w-full mx-auto"
         >
           <div
             className={clsx(
@@ -55,8 +55,8 @@ function GameComponent() {
       <button
         onClick={() => {
           // WebApp.showAlert(`Hello World! Current word is ${ru}`);
-          setCurrent(getRandomInt(0, persons.length - 1));
           setOpen(false);
+          setCurrent(getRandomInt(0, persons.length - 1));
         }}
         className="button"
       >
