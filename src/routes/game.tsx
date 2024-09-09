@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { getRandomInt } from "../utils/getRandomInt";
-import { words } from "../constants/words";
-// import Pants from "../assets/svg/pants.svg";
+import clsx from "clsx";
+import { persons } from "../constants/words";
 
 export const Route = createFileRoute("/game")({
   component: GameComponent,
@@ -10,16 +10,17 @@ export const Route = createFileRoute("/game")({
 
 function GameComponent() {
   const [current, setCurrent] = useState<number>(
-    getRandomInt(0, words.length - 1),
+    getRandomInt(0, persons.length - 1),
   );
   const [open, setOpen] = useState(false);
+  const toggleCard = () => setOpen((prev) => !prev);
 
-  const { ta, ru, audio, image } = words[current];
+  const { ta, ru, audio, image } = persons[current];
 
   return (
     <>
-      <h1>Game</h1>
-      <div className="p-4 border rounded grid grid-cols-1 gap-4 min-h-52">
+      <h1>Люди</h1>
+      <div className="p-4 border rounded-2xl grid grid-cols-1 gap-4 min-h-52">
         <img
           src={image}
           alt={image}
@@ -32,18 +33,29 @@ function GameComponent() {
           Your browser does not support the audio element.
         </audio>
         <button
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
-          className="text-6xl w-full"
+          onClick={toggleCard}
+          onTouchStart={toggleCard}
+          className="trelative cursor-pointer overflow-hidden w-full mx-auto"
         >
-          {open ? ru : ta}
+          <div
+            className={clsx(
+              "flex transition-transform duration-500 ease-in-out",
+              open ? "-translate-x-full" : "",
+            )}
+          >
+            <span className="text-3xl font-bold text-blue-600 w-full flex-shrink-0 text-center">
+              {ta}
+            </span>
+            <span className="text-3xl font-bold text-green-600 w-full flex-shrink-0 text-center">
+              {ru}
+            </span>
+          </div>
         </button>
       </div>
       <button
         onClick={() => {
           // WebApp.showAlert(`Hello World! Current word is ${ru}`);
-          setCurrent(getRandomInt(0, words.length - 1));
+          setCurrent(getRandomInt(0, persons.length - 1));
           setOpen(false);
         }}
         className="button"

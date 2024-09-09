@@ -5,4 +5,5 @@ export type IWord = {
   en: string;
   audio: string;
   image?: string;
+  tags?: string[];
 };
