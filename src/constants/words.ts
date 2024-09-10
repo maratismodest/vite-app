@@ -1,4 +1,4 @@
-import { IWord } from "../types";
+import { IWord } from "@/types";
 
 export const words: IWord[] = [
   // {
@@ -2169,4 +2169,88 @@ export const words: IWord[] = [
   },
 ];
 
-export const persons = words.filter((item) => item.tags);
+// export const persons = words.filter((item) => item.tags);
+
+export const persons: IWord[] = [
+  {
+    id: 27,
+    ru: "парень",
+    ta: "егет",
+    en: "guy",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/егет.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/guy.svg",
+    tags: ["person"],
+  },
+  {
+    id: 9,
+    ru: "ученик, читатель",
+    ta: "укучы",
+    en: "student, reader",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/укучы.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/student.svg",
+    tags: ["person"],
+  },
+  {
+    id: 134,
+    ru: "мама",
+    ta: "әни",
+    en: "mom",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/әни.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/mom.svg",
+    tags: ["person"],
+  },
+  {
+    id: 140,
+    ru: "ребёнок",
+    ta: "бала",
+    en: "child",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/бала.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/child.svg",
+    tags: ["person"],
+  },
+  {
+    id: 137,
+    ru: "младенец",
+    ta: "бәби",
+    en: "baby",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/бәби.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/baby.svg",
+    tags: ["person"],
+  },
+  {
+    id: 139,
+    ru: "бабушка",
+    ta: "әби",
+    en: "grandmother",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/әби.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/grandmother.svg",
+    tags: ["person"],
+  },
+  {
+    id: 133,
+    ru: "папа",
+    ta: "әти",
+    en: "father",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/әти.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/father.svg",
+    tags: ["person"],
+  },
+  {
+    id: 135,
+    ru: "мальчик",
+    ta: "малай",
+    en: "boy",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/малай.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/boy.svg",
+    tags: ["person"],
+  },
+  {
+    id: 81,
+    ru: "девочка/девушка, дочь",
+    ta: "кыз",
+    en: "girl, daughter",
+    audio: "https://fileserver.innoads.ru/uploads/chamala/кыз.mp3",
+    image: "https://fileserver.innoads.ru/uploads/chamala/girl.svg",
+    tags: ["person"],
+  },
+];
