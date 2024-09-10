@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { getRandomInt } from "../utils/getRandomInt";
+import { getRandomInt } from "@/utils/getRandomInt";
 import clsx from "clsx";
-import { persons } from "../constants/words";
+import { persons } from "@/constants/words";
+import AudioPlayer from "@/components/AudioPlayer";
 
 export const Route = createFileRoute("/game")({
   component: GameComponent,
@@ -20,6 +21,7 @@ function GameComponent() {
   return (
     <>
       <h1>Люди</h1>
+
       <div className="p-4 border rounded-2xl grid grid-cols-1 gap-4 min-h-52">
         <img
           src={image}
@@ -28,10 +30,7 @@ function GameComponent() {
           height={128}
           className="mx-auto"
         />
-        <audio controls className="mx-auto" src={audio}>
-          <source src={audio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
+        <div className="mx-auto">{audio && <AudioPlayer src={audio} />}</div>
         <button
           onClick={toggleCard}
           onTouchStart={toggleCard}
@@ -55,8 +54,8 @@ function GameComponent() {
       <button
         onClick={() => {
           // WebApp.showAlert(`Hello World! Current word is ${ru}`);
-          setOpen(false);
           setCurrent(getRandomInt(0, persons.length - 1));
+          setOpen(false);
         }}
         className="button"
       >
